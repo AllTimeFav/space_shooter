@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="mysql-connector-j-8.4.01">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/native/mysql-connector-j-8.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/native/slick-util3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/native/PNGDecoder.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

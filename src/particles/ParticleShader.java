@@ -1,0 +1,42 @@
+package particles;
+
+import org.lwjgl.util.vector.Matrix4f;
+
+import org.lwjgl.util.vector.Vector2f;
+import shaders.ShaderProgram;
+
+public class ParticleShader extends ShaderProgram {
+
+	private static final String VERTEX_FILE = "src/particles/particleVShader.glsl";
+	private static final String FRAGMENT_FILE = "src/particles/particleFShader.glsl";
+
+	private int location_numberOFRows;
+	private int location_projectionMatrix;
+
+	public ParticleShader() {
+		super(VERTEX_FILE, FRAGMENT_FILE);
+	}
+
+	@Override
+	protected void getAllUniformLocations() {
+		location_numberOFRows = super.getUniformLocation("numberOfRows");
+		location_projectionMatrix = super.getUniformLocation("projectionMatrix");
+		}
+
+	protected void loadNumberOfRows(float rowsNum) {
+		super.loadFloat(location_numberOFRows, rowsNum);
+	}
+
+	@Override
+	protected void bindAttributes() {
+		super.bindAttribute(0, "position");
+		super.bindAttribute(1, "modelViewMatrix");
+		super.bindAttribute(5, "texOffsets");
+		super.bindAttribute(6, "blendFactor");
+	}
+
+	protected void loadProjectionMatrix(Matrix4f projectionMatrix) {
+		super.loadMatrix(location_projectionMatrix, projectionMatrix);
+	}
+
+}
